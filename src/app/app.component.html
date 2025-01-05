@@ -17,16 +17,21 @@
         </div>
         <div class="form-group">
           <label for="pcatg">Product-catg</label>
-          <select name="" id="pcatg" class="form-control">
+          <select
+            [(ngModel)]="selectedOption"
+            name=""
+            id="pcatg"
+            class="form-control"
+          >
             <option value="product">Product</option>
             <option value="catlog">Catlog</option>
           </select>
         </div>
         <button
-          (click)="addproduct()"
+          (click)="selectedOption === 'product' ? addproduct() : addcatlog()"
           class="btn btn-sm btn-block btn-outline-primary"
         >
-          Add Product
+          Add Product/Add Catlog
         </button>
       </div>
       <div *ngIf="productsData.length > 0">
